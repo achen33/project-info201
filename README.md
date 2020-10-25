@@ -12,10 +12,15 @@ With our domain, we would like to first discover the impact of different laws on
 
 Data Source (1)
 - Where did you download the data (e.g., a web URL)?
+Data was downloaded The United States Census website: https://www.census.gov/data/tables/time-series/demo/voting-and-registration/p20-580.html (Table 4b)
 - How was the data collected or generated? Make sure to explain who collected the data (not necessarily the same people that host the data), and who or what the data is about?
+This data was collected by a national survey that is sent out to every US resident every 2 years. This data takes into account sex, race, and Hispanic-origin for every US state in the 2016 election.
 - How many observations (rows) are in your data?
+There are 571 rows in the data -- 11 rows for each state.
 - How many features (columns) are in the data?
+There are 14 columns in the data
 - What questions (from above) can be answered using the data in this dataset?
+From the dataset we could answer questions based on race and gender from each state. We could also look at voting laws in each state and discover the correlation it has with voter turnout.
 
 Data Source (2)
 - Where did you download the data (e.g., a web URL)?
@@ -27,7 +32,7 @@ There are 410 observations (rows) in this data that shows the Congressional Dist
 - How many features (columns) are in the data?
 There are 8 features (columns) in the data to show the data collected in each of these congressional districts.
 - What questions (from above) can be answered using the data in this dataset?
-From the data in this dataset, I can answer the question of what the impact of different laws/government systems, specifically polling stations and wait times at them, is on voting disparities in marginal communities. This will also help to identify whether there is clear evidence to show the disproportionate targeting of communities of color.
+From the data in this dataset, it can answer the question of what the impact of different laws/government systems, specifically polling stations and wait times at them, is on voting disparities in marginal communities. This will also help to identify whether there is clear evidence to show the disproportionate targeting of communities of color.
 
 Data Source (3)
 - Where did you download the data (e.g., a web URL)?
