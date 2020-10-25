@@ -1,6 +1,6 @@
 # project-info201
 
-##_Domain of Interest_
+## **Domain of Interest**
 - Why are you interested in this field/domain?
 For the project, our area of focus is centered on highlighting the disparities in access to voting within marginalized communities. Specifically, our target groups are women and BIPOC people and any intersectionality between the two demographics. We are interested in this as we all feel that issues such as voter suppression and voter intimidation are still increasingly pervasive systemic issues that have led to a lack in voter engagement and turnout within these groups. There are a multitude of existing and new barriers, such as delay with ballot drop-offs via US Postal Service, continual cut of mail ballot drop-off sites, lack of online registration, personal identification requirements and more. With that, our group aims to dive more in-depth into this study to observe where these practices are still prevalent, analyze the number of people it still affects, as well as understand the effects of it on today’s voting processes.  
 - What other examples of data driven projects have you found related to this domain (share **at least 3**)?
@@ -8,7 +8,8 @@ Related to this domain, some examples of data driven projects we have are the Bl
 - What data-driven questions do you hope to answer about this domain (share **at least 3**?
 With our domain, we would like to first discover the impact of different laws on voting disparities in marginal communities to see which laws are most affecting voter turnout. We also hope to then analyze the voting disparities between men and women to answer whether or not intersectionality between race and gender affects voting engagement as well. Through analyzing our data, we would also like to see whether or not there is actually a direct correlation between laws and government occurrences, such as ballot box waiting times, and voter turnout, and to see whether or not there is a system that does not disproportionately discourage voter participation in marginalized communities.
 
-##_Finding Data_
+## **Finding Data**
+
 Data Source (1)
 - Where did you download the data (e.g., a web URL)?
 - How was the data collected or generated? Make sure to explain who collected the data (not necessarily the same people that host the data), and who or what the data is about?
