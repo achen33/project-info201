@@ -12,7 +12,7 @@ With our domain, we would like to first discover the impact of different laws on
 
 Data Source (1)
 - Where did you download the data (e.g., a web URL)?
-Data was downloaded The United States Census website: https://www.census.gov/data/tables/time-series/demo/voting-and-registration/p20-580.html (Table 4b)
+Data was downloaded from the United States Census website: https://www.census.gov/data/tables/time-series/demo/voting-and-registration/p20-580.html (Table 4b)
 - How was the data collected or generated? Make sure to explain who collected the data (not necessarily the same people that host the data), and who or what the data is about?
 This data was collected by a national survey that is sent out to every US resident every 2 years. This data takes into account sex, race, and Hispanic-origin for every US state in the 2016 election.
 - How many observations (rows) are in your data?
