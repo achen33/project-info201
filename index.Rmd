@@ -1,4 +1,19 @@
-#For the project, our area of focus is centered on highlighting the disparities in access to voting within marginalized communities. Specifically, our target groups are women and the BIPOC community and any intersectionality between the two demographics. We are interested in this as we all feel that issues such as voter suppression and voter intimidation are still increasingly pervasive systemic issues that have led to a lack in voter engagement and turnout within these groups. There are a multitude of existing and new barriers, such as delay with ballot drop-offs via US Postal Service, continual cut of mail ballot drop-off sites, lack of online registration, personal identification requirements and more. With that, our group aims to dive more in-depth into this study to observe where these practices are still prevalent, analyze the number of people it still affects, as well as understand the effects of it on today’s voting processes. Our dataset is taken from the U.S. Census Bureau and displays the voting information separated by race and gender. This accumulation of information allows us to analyze any disparities or trends in voting data within our target marginalized communities.
+#For the project, our area of focus is centered on highlighting the disparities
+#in access to voting within marginalized communities. Specifically, our target 
+#groups are women and the BIPOC community and any intersectionality between the
+#two demographics. We are interested in this as we all feel that issues such as
+#voter suppression and voter intimidation are still increasingly pervasive 
+#systemic issues that have led to a lack in voter engagement and turnout within
+#these groups. There are a multitude of existing and new barriers, such as 
+#delay with ballot drop-offs via US Postal Service, continual cut of mail 
+#ballot drop-off sites, lack of online registration, personal identification 
+#requirements and more. With that, our group aims to dive more in-depth into 
+#this study to observe where these practices are still prevalent, analyze the 
+#number of people it still affects, as well as understand the effects of it on 
+#today’s voting processes. Our dataset is taken from the U.S. Census Bureau 
+#and displays the voting information separated by race and gender. This 
+#accumulation of information allows us to analyze any disparities or trends 
+#in voting data within our target marginalized communities.
 
 install.packages("dplyr")
 library("dplyr")
