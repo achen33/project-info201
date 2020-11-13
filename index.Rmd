@@ -15,6 +15,14 @@
 #accumulation of information allows us to analyze any disparities or trends 
 #in voting data within our target marginalized communities.
 
+# Insert summary paragpraph that includes information calculated by your
+# summary information function 
+
+# Render table and describe pertinent observations found in it 
+
+# Describe the purpose of each chart, render each chart, and describe pertinent
+# information found in each chart 
+
 install.packages("dplyr")
 library("dplyr")
 install.packages("tidyverse")
@@ -28,7 +36,7 @@ registered <- national_race$Percent.registered..Total.
 voted <- national_race$Percent.voted..Total.
 
 min_percent_registered <- race %>%
-  filter(registered == max(registered)) %>% 
+  filter(registered == min(registered)) %>% 
   pull(race)
 max_percent_registered <- race %>%
   filter(registered == max(registered)) %>%
