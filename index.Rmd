@@ -45,7 +45,8 @@ President Election, as well as the ratio comparing women voters to total U.S.
 population voters and BIPOC voters to total U.S. population voters. 
 
 # Render table and describe pertinent observations found in it 
-
+'''{r summaryInformationTable, echo = FALSE, message =  FALSE}
+'''
 
 # Describe the purpose of each chart, render each chart, and describe pertinent
 # information found in each chart 
