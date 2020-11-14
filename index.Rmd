@@ -48,6 +48,11 @@ total U.S. population voters.
 # Render table and describe pertinent observations found in it 
 '''{r summaryInformationTable, echo = FALSE, message =  FALSE}
 '''
+This table reveals many insights to voter behavior. It shows total  individuals voted, 
+total population, and total number registered from each race and gender. We can gather 
+a lot of information on who is more likely to vote and what other affects their access 
+to voting. 
+
 
 # Describe the purpose of each chart, render each chart, and describe pertinent
 # information found in each chart 
@@ -55,6 +60,10 @@ total U.S. population voters.
 ##chart 1
 '''{r chartOne, echo = FALSE, message =  FALSE}
 '''
+This fasted histogram chart is intended to show the relationship between men and women 
+who were registered and voted. The data from this graph allows us to see the 
+difference in voter turnout based on gender. It shows that more women were registered 
+to vote and were more likely to vote.  
 
 ##chart 2
 '''{r chartTwo, echo = FALSE, message =  FALSE}

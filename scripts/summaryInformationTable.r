@@ -1,8 +1,12 @@
 library(readxl)
 library(tidyr)
 library(dplyr)
-install.packages("installr")
 
+
+library(readr)
+table04b <- read.csv("data/table04b.csv", 
+                     col_names = FALSE)
+View(table04b)
 
 #US total table   
 us_table <- table04b %>%
@@ -17,7 +21,7 @@ us_table <- table04b %>%
 filter(!(sex_race == "Total")) %>%
 filter(state == "US")
 
-
+write.csv(us_table, file = "data/us_table.csv")
 
   
   
