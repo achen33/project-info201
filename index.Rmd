@@ -15,28 +15,13 @@
 #accumulation of information allows us to analyze any disparities or trends 
 #in voting data within our target marginalized communities.
 
-install.packages("dplyr")
-library("dplyr")
-install.packages("tidyverse")
-library("tidyverse")
+# Insert summary paragpraph that includes information calculated by your
+# summary information function 
 
-national_race <- read.csv("~/Desktop/project-info201/data:/national_race.csv")
+# Render table and describe pertinent observations found in it 
 
-names(national_race)
-race <- national_race$Sex...Race.and.Hispanic.Origin
-registered <- national_race$Percent.registered..Total.
-voted <- national_race$Percent.voted..Total.
+# Describe the purpose of each chart, render each chart, and describe pertinent
+# information found in each chart 
 
-min_percent_registered <- race %>%
-  filter(registered == max(registered)) %>% 
-  pull(race)
-max_percent_registered <- race %>%
-  filter(registered == max(registered)) %>%
-  pull(race)
-min_percent_voted <- race %>%
-  filter(voted == min(voted)) %>%
-  pull(race)
-max_percent_voted <- race %>%
-  filter(voted == max(voted)) %>%
-  pull(race)
+
 
