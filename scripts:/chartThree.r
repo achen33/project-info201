@@ -16,7 +16,7 @@ national_race <- read.csv("~/Documents/UW/junior/INFO 201/project-info201/data:/
 
 race_total <- select(race, Sex..Race.and.Hispanic.Origin, Total.registered, Total.voted)
 View(race_total)
-race_bipoc <- race[-c(5, 6, 7), ]
+race_bipoc <- race[-c(1, 5, 6, 7), ]
 View(race_bipoc)
 
 
