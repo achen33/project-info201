@@ -31,13 +31,18 @@ ballot drop-off sites, lack of online registration, personal identification
 requirements and more. With that, our group aims to dive more in-depth into 
 this study to observe where these practices are still prevalent, analyze the 
 number of people it still affects, as well as understand the effects of it on 
-today’s voting processes. Our dataset is taken from the U.S. Census Bureau 
+today’s voting processes. Our data set is taken from the U.S. Census Bureau 
 and displays the voting information separated by race and gender. This 
 accumulation of information allows us to analyze any disparities or trends 
 in voting data within our target marginalized communities.
 
 # Insert summary paragpraph that includes information calculated by your
 # summary information function 
+For the summary information, we decides to focus on these specific areas: 
+Minimum and maximum percentage of racial groups that registered to vote,
+minimum and maximum percentage of racial groups that voted during the 2016 
+President Election, as well as the ratio comparing women voters to total U.S.
+population voters and BIPOC voters to total U.S. population voters. 
 
 # Render table and describe pertinent observations found in it 
 
@@ -61,7 +66,7 @@ between access to voting even after being registered between race groups.
 ##chart 3
 '''{r chartThree, echo = FALSE, message =  FALSE}
 '''
-This pie chart was created with the intentions of visualizing the relationship
+These pie charts were created with the intentions of visualizing the relationship
 between the number of BIPOC individuals who registered to vote versus the
 number of BIPOC individuals who voted within the U.S. 2016 Presidential 
 Election. Similar to the other two charts, while this chart highlights a
