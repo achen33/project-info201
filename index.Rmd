@@ -1,27 +1,70 @@
-#For the project, our area of focus is centered on highlighting the disparities
-#in access to voting within marginalized communities. Specifically, our target 
-#groups are women and the BIPOC community and any intersectionality between the
-#two demographics. We are interested in this as we all feel that issues such as
-#voter suppression and voter intimidation are still increasingly pervasive 
-#systemic issues that have led to a lack in voter engagement and turnout within
-#these groups. There are a multitude of existing and new barriers, such as 
-#delay with ballot drop-offs via US Postal Service, continual cut of mail 
-#ballot drop-off sites, lack of online registration, personal identification 
-#requirements and more. With that, our group aims to dive more in-depth into 
-#this study to observe where these practices are still prevalent, analyze the 
-#number of people it still affects, as well as understand the effects of it on 
-#today’s voting processes. Our dataset is taken from the U.S. Census Bureau 
-#and displays the voting information separated by race and gender. This 
-#accumulation of information allows us to analyze any disparities or trends 
-#in voting data within our target marginalized communities.
+---
+title: "Exploratory Analysis: Voter Disparities Among Marginalized Communities"
+author: "Audrey Chen, Selina Dinh, Hadar Dolev"
+date: "11/12/2020"
+output: html_document
+---
+#Exploratory Analysis
+
+'''{r setup, include = FALSE}
+library("knitr")
+library("stringr")
+library("tidyverse")
+library("ggplot2")
+source("scripts/chartOne.R")
+source("scripts/chartTwo.R")
+source("scripts/chartThree.R")
+source("scripts/summaryInformation.R")
+source("scripts/summaryInformationTable.R")
+'''
+
+## Introduction
+For the project, our area of focus is centered on highlighting the disparities
+in access to voting within marginalized communities. Specifically, our target 
+groups are women and the BIPOC community and any intersectionality between the
+two demographics. We are interested in this as we all feel that issues such as
+voter suppression and voter intimidation are still increasingly pervasive 
+systemic issues that have led to a lack in voter engagement and turnout within
+these groups. There are a multitude of existing and new barriers, such as 
+delay with ballot drop-offs via US Postal Service, continual cut of mail 
+ballot drop-off sites, lack of online registration, personal identification 
+requirements and more. With that, our group aims to dive more in-depth into 
+this study to observe where these practices are still prevalent, analyze the 
+number of people it still affects, as well as understand the effects of it on 
+today’s voting processes. Our dataset is taken from the U.S. Census Bureau 
+and displays the voting information separated by race and gender. This 
+accumulation of information allows us to analyze any disparities or trends 
+in voting data within our target marginalized communities.
 
 # Insert summary paragpraph that includes information calculated by your
 # summary information function 
 
 # Render table and describe pertinent observations found in it 
 
+
 # Describe the purpose of each chart, render each chart, and describe pertinent
 # information found in each chart 
 
+##chart 1
+'''{r chartOne, echo = FALSE, message =  FALSE}
+'''
 
+##chart 2
+'''{r chartTwo, echo = FALSE, message =  FALSE}
+'''
+This histogram chart was intended to show the relationship between the number 
+of white individuals who registered and the number of white individuals who 
+voted. The data from this graph then allows us to compare the differences 
+between races in order to asses whether or not there is a significant disparity
+between access to voting even after being registered between race groups.
 
+##chart 3
+'''{r chartThree, echo = FALSE, message =  FALSE}
+'''
+This pie chart was created with the intentions of visualizing the relationship
+between the number of BIPOC individuals who registered to vote versus the
+number of BIPOC individuals who voted within the U.S. 2016 Presidential 
+Election. Similar to the other two charts, while this chart highlights a
+different demographic, it will allow us to compare the statistics 
+of voter registration between different genders and race groups to observe any
+possible disparities. 

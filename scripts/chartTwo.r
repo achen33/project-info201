@@ -1,8 +1,4 @@
-#This chart was intended to show the relationship between the number of white
-#individuals who registered and the number of white individuals who voted. The
-#data from this graph then allows us to compare the differences between races
-#in order to asses whether or not there is a significant disparity between 
-#access to voting even after being registered between race groups.
+#chart1
 
 library(ggplot2)
 
