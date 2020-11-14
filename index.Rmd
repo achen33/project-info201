@@ -53,7 +53,6 @@ total population, and total number registered from each race and gender. We can 
 a lot of information on who is more likely to vote and what other affects their access 
 to voting. 
 
-
 # Describe the purpose of each chart, render each chart, and describe pertinent
 # information found in each chart 
 
