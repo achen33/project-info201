@@ -4,12 +4,12 @@ library(dplyr)
 
 
 library(readr)
-table04b <- read.csv("data/table04b.csv", 
-                     col_names = FALSE)
-View(table04b)
+original_table <- read_csv("data/original_table.csv", 
+                           col_names = FALSE)
+View(original_table)
 
 #US total table   
-us_table <- table04b %>%
+us_table <- original_table %>%
   select(X1, X2, X3, X5, X10) %>%
   rename(
     state = X1,
@@ -18,10 +18,11 @@ us_table <- table04b %>%
     total_registered = X5,
     total_voted = X10
   ) %>%
-filter(!(sex_race == "Total")) %>%
-filter(state == "US")
+  filter(!(sex_race == "Total")) %>%
+  filter(state == "US")
 
 write.csv(us_table, file = "data/us_table.csv")
 
   
-  
+View(us_table)
+
