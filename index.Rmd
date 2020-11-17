@@ -39,14 +39,19 @@ in voting data within our target marginalized communities.
 # Insert summary paragpraph that includes information calculated by your
 # summary information function 
 For the summary information, we decides to focus on these specific areas: 
-Minimum and maximum percentage of racial groups that registered to vote,
-minimum and maximum percentage of racial groups that voted during the 2016 
-President Election, as well as the ratio comparing women voters to total U.S.
-population voters and BIPOC voters to total U.S. population voters. 
+Minimum and maximum percentage of racial groups that registered to vote during
+the 2016 Presidential Election,minimum and maximum percentage of racial groups 
+that voted during the 2016 President Election, as well as the ratio comparing
+total women voters to total U.S. population voters and total BIPOC voters to
+total U.S. population voters. 
 
 # Render table and describe pertinent observations found in it 
 '''{r summaryInformationTable, echo = FALSE, message =  FALSE}
 '''
+This table reveals many insights to voter behavior. It shows total  individuals voted, 
+total population, and total number registered from each race and gender. We can gather 
+a lot of information on who is more likely to vote and what other affects their access 
+to voting. 
 
 # Describe the purpose of each chart, render each chart, and describe pertinent
 # information found in each chart 
@@ -54,6 +59,10 @@ population voters and BIPOC voters to total U.S. population voters.
 ##chart 1
 '''{r chartOne, echo = FALSE, message =  FALSE}
 '''
+This fasted histogram chart is intended to show the relationship between men and women 
+who were registered and voted. The data from this graph allows us to see the 
+difference in voter turnout based on gender. It shows that more women were registered 
+to vote and were more likely to vote.  
 
 ##chart 2
 '''{r chartTwo, echo = FALSE, message =  FALSE}

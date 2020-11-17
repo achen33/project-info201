@@ -42,16 +42,26 @@ library("tidyverse")
 national <- read.csv("~/Documents/UW/junior/INFO 201/project-info201/data:/national.csv")
 View(national)
 
-# Ratio of Female Voted to Total Pop Voted 
-national_groups <- select(national, Sex..Race.and.Hispanic.Origin, Total.registered, Total.voted)
+# Ratio of Total Female Voted to Total Pop Voted 
+national_groups <- select(national, Sex..Race.and.Hispanic.Origin, Total.voted)
 View(national_groups)
 female_data <- national_groups[-c(4:10), ]
 View(female_data)
+total_female_voted <- female_data %>%
+  filter(total == max(Female))
+total_pop_voted <- female_data %>%
+  filter(total == max(Total))
+ratio_female_to_total <- total_female_voted / total_pop_voted  
 
-
-# Ratio of BIPOC Voted to Total Pop Voted 
-national_groups <- select(national, Sex..Race.and.Hispanic.Origin, Total.registered, Total.voted)
+# Ratio of Total BIPOC Voted to Total Pop Voted 
+national_groups <- select(national, Sex..Race.and.Hispanic.Origin, Total.voted)
 View(national_groups)
-bipoc_data <- nattional_groups[-c(1:3), ]
+bipoc_data <- national_groups[-c(1:3), ]
 View(bipoc_data)
-  
+total_bipoc_voted <- bipoc_data %>%
+  filter(bipoc_data, Total.voted == "Black alone", "Asian alone", "Hispanic 
+         (of any race)"
+         )
+total_pop_voted <- bipoc_data %>%
+  filter(total == max(Total))
+ratio_bipoc_to_total <- total_bipoc_voted / total_pop_voted 
