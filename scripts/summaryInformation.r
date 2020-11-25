@@ -7,30 +7,53 @@ summary_info$some_max_value <- my_dataframe %>%
   select(some_label)
 
 # Audrey's work (Min, max)
-install.packages("dplyr")
+
 library("dplyr")
-install.packages("tidyverse")
 library("tidyverse")
+library(readr)
 
-national_race <- read.csv("~/Desktop/project-info201/data:/national_race.csv")
+county_statistics_1_ <- read_csv("data/county_statistics (1).csv")
+View(county_statistics_1_)
 
-names(national_race)
-race <- national_race$Sex...Race.and.Hispanic.Origin
-registered <- national_race$Percent.registered..Total.
-voted <- national_race$Percent.voted..Total.
+state_votes <- county_statistics_1_ %>%
+  select (state, percentage20_Joe_Biden, percentage20_Donald_Trump) %>%
+  group_by(state)%>%
+  summarise(percentage20_Joe_Biden == mean(percentage20_Joe_Biden, na.rm=T)) %>%
+  filter(percentage20_Joe_Biden == min(percentage20_Joe_Biden, na.rm=T)) %>%
+  View(state_votes)
 
-min_percent_registered <- race %>%
-  filter(registered == min(registered)) %>% 
-  pull(race)
-max_percent_registered <- race %>%
-  filter(registered == max(registered)) %>%
-  pull(race)
-min_percent_voted <- race %>%
-  filter(voted == min(voted)) %>%
-  pull(race)
-max_percent_voted <- race %>%
-  filter(voted == max(voted)) %>%
-  pull(race)
+#State with the most votes for Biden in the 2020 election 
+state_max_voters_biden20 <- county_statistics_1_ %>%
+  select(state, percentage20_Joe_Biden) %>%
+  group_by(state) %>%
+  summarise(percentage20_Joe_Biden == max(percentage20_Joe_Biden, na.rm=T)) %>%
+  pull(state)
+
+#State with the most votes for Trump in the 2020 election 
+#-------------------FIX? -----------------------
+state_max_voters_trump20 <- county_statistics_1_ %>%
+  select(state, percentage20_Donald_Trump) %>%
+  filter(percentage20_Donald_Trump == max(percentage20_Donald_Trump, na.rm=T)) %>%
+  pull(state)
+
+#state with the most black population 
+#State with the most black population 
+race_pop_black <- county_statistics_1_ %>%
+  Select(state, county, TotalPop, Men, Women, Hispanic, White, Black, Native, Asian, Pacific) %>%
+  mutate(black_percent = Black / TotalPop *100)
+  group_by(state) %>%
+  summarise(max_black_pop = max(black_percent, na.rm = T))
+  summarise(min_black_pop = min(black_precent, na.rm=T))
+  
+#state with the most Hispanic population 
+race_pop_hispanic <- county_statistics_1_ %>%
+  select(state, county, TotalPop, Men, Women, Hispanic, White, Black, Native, Asian, Pacific) %>%
+  mutate(hispanic_percent = Hispanic / TotalPop *100)
+  group_by(state) %>%
+  summarise(max_hispanic_pop = max(hispanic_percent, na.rm = T))
+  
+
+  
 
 # Selina's work (Ratio: (1) Female Voted to Total Pop Voted; 
 # (2) BIPOC Voted to Total Pop Voted)
