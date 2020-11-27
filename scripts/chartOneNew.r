@@ -9,7 +9,7 @@ library(tidyverse)
 library(ggplot2)
 
 # Load data
-county_statistics <- read.csv("~/Documents/UW/junior/INFO 201/project-info201/data/county_statistics (1).csv")
+county_statistics <- read.csv("data/county_statistics (1).csv")
 View(county_statistics)
 
 # Chart Script (1)

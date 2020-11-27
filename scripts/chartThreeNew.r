@@ -1,7 +1,7 @@
 # Chart Three: Scatterplot
 
 # Purpose (To be inserted in index.Rmd): 
-# Compare votes for Donald Trump and Joe Biden by counties within each state for 
+# Compare votes for Donald Trump and Joe Biden by within each state for 
 # 2020 election
 
 # Load needed packages: 
@@ -9,7 +9,7 @@ library(tidyverse)
 library(ggplot2)
 
 # Load data
-county_statistics <- read.csv("~/Documents/UW/junior/INFO 201/project-info201/data/county_statistics (1).csv")
+county_statistics <- read.csv("data/county_statistics (1).csv")
 View(county_statistics)
 
 # Chart Script 
