@@ -16,6 +16,8 @@ state_votes <- data %>%
   summarise(votes_Joe_Biden = sum(votes20_Joe_Biden, na.rm = TRUE),
             votes_donald_trump = sum(votes20_Donald_Trump, na.rm = TRUE))%>%
   mutate(vote_diff = abs(votes_donald_trump - votes_Joe_Biden))
+
+View(state_votes)
   
 
 

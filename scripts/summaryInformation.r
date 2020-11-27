@@ -1,14 +1,10 @@
 # Assignment asked to include:
 # A function that takes in a dataset and returns a list of info about it:
-summary_info <- list()
-summary_info$num_observations <- nrow(my_dataframe)
-summary_info$some_max_value <- my_dataframe %>%
-  filter(some_var == max(some_var, na.rm = T)) %>%
-  select(some_label)
+
 
 library("dplyr")
 library("tidyverse")
-library(readr)
+library("readr")
 
 county_statistics_1_ <- read_csv("data/county_statistics (1).csv")
 View(county_statistics_1_)
@@ -57,18 +53,13 @@ summary_info$max_race_pop_white <- county_statistics_1_ %>%
   mutate(white_percent = White / TotalPop *100) %>%
   select(state, county, TotalPop, white_percent) %>%
   group_by(state) %>%
-  summarise(max_pop = max(white_percent, na.rm = T))%>%
+  summarise(max_pop = max(white_percent, na.rm = T)) %>%
   filter(max_pop == max(max_pop, na.rm=T)) %>%
   pull(state)
   
   
-summary_info <- list()
-summary_info$max_percent_joe <- county_statistics_1_ %>%
-summary_info$max_percent_trump <- county_statistics_1_ %>%
-summary_info$max_race_pop_black <- county_statistics_1_ %>%
-summary_info$voter_turnout_ms<- county_statistics_1_ %>%
-summary_info$max_race_pop_white<- county_statistics_1_ 
 
+View(summary_info)
   
   
   
