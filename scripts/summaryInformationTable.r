@@ -4,23 +4,35 @@ library(dplyr)
 library(readr)
 library(tidyverse)
 
-data <- read.csv("https://raw.githubusercontent.com/achen33/project-info201/main/data/county_statistics%20(1).csv")
-
+#################Hadars work###############################
+data <- read_csv("data/county_statistics (1).csv")
+View(county_statistics_1_)
 num_states <- length(unique(data$state))
 
+  
+state_votes <- data %>% 
+  select(state, total_votes20, votes20_Donald_Trump, votes20_Joe_Biden)%>%
+  group_by(state) %>% 
+  summarise(votes_Joe_Biden = sum(votes20_Joe_Biden, na.rm = TRUE),
+            votes_donald_trump = sum(votes20_Donald_Trump, na.rm = TRUE))%>%
+  mutate(vote_diff = abs(votes_donald_trump - votes_Joe_Biden))
+  
+
+
+#######################Audreys work##########################
 vote_diff <- data %>% 
   group_by(state) %>% 
   summarise(votes20_Joe_Biden = sum(votes20_Joe_Biden, 
-                                                   na.rm = TRUE))
+                                                   na.rm = TRUE))%>%
   summarise(votes20_Donald_Trump = sum(votes20_Donald_Trump,
-                                                    na.rm = TRUE))
+                                                    na.rm = TRUE))%>%
   mutate(biden_votes = 
            if_else(votes20_Joe_Biden >= votes20_Donald_Trump,
                    leading_candidate_votes, 
                    trailing_candidate_votes 
            ), 
          trump_votes = total_votes_count - biden_votes
-  )
+  )%>%
   mutate(vote_diff = biden_votes - trump_votes, 
          pct_diff = vote_diff / total_votes20)
 
