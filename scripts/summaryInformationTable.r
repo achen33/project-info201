@@ -1,28 +1,48 @@
 library(readxl)
 library(tidyr)
 library(dplyr)
-
-
 library(readr)
-original_table <- read_csv("data/original_table.csv", 
-                           col_names = FALSE)
-View(original_table)
+library(tidyverse)
 
-#US total table   
-us_table <- original_table %>%
-  select(X1, X2, X3, X5, X10) %>%
-  rename(
-    state = X1,
-    sex_race = X2,
-    total_population = X3,
-    total_registered = X5,
-    total_voted = X10
-  ) %>%
-  filter(!(sex_race == "Total")) %>%
-  filter(state == "US")
-
-write.csv(us_table, file = "data/us_table.csv")
+#################Hadars work###############################
+data <- read_csv("data/county_statistics (1).csv")
+View(county_statistics_1_)
+num_states <- length(unique(data$state))
 
   
-View(us_table)
+state_votes <- data %>% 
+  select(state, total_votes20, votes20_Donald_Trump, votes20_Joe_Biden)%>%
+  group_by(state) %>% 
+  summarise(votes_Joe_Biden = sum(votes20_Joe_Biden, na.rm = TRUE),
+            votes_donald_trump = sum(votes20_Donald_Trump, na.rm = TRUE))%>%
+  mutate(vote_diff = abs(votes_donald_trump - votes_Joe_Biden))
+  
 
+
+#######################Audreys work##########################
+vote_diff <- data %>% 
+  group_by(state) %>% 
+  summarise(votes20_Joe_Biden = sum(votes20_Joe_Biden, 
+                                                   na.rm = TRUE))%>%
+  summarise(votes20_Donald_Trump = sum(votes20_Donald_Trump,
+                                                    na.rm = TRUE))%>%
+  mutate(biden_votes = 
+           if_else(votes20_Joe_Biden >= votes20_Donald_Trump,
+                   leading_candidate_votes, 
+                   trailing_candidate_votes 
+           ), 
+         trump_votes = total_votes_count - biden_votes
+  )%>%
+  mutate(vote_diff = biden_votes - trump_votes, 
+         pct_diff = vote_diff / total_votes20)
+
+vote_diff_plot <- ggplot(data = vote_diff) + 
+  geom_col(mapping = aes(x = vote_diff, 
+                         y = reorder(state, vote_diff), 
+                         fill = leading_candidate_name)) +
+  scale_fill_manual(values=c("blue", "red")) +
+  labs(y = "State", x = "Vote Difference", fill = "Candidate", 
+       title = "Vote difference at most recent time stamp")
+
+vote_pct_plot <- ggplot(vote_diff) + 
+  geom_col(mapping = aes(x = pct_diff, y = reorder(state, pct_diff)))

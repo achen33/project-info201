@@ -6,7 +6,7 @@ output: html_document
 ---
 #Exploratory Analysis
 
-'''{r setup, include = FALSE}
+```{r setup, include = FALSE}
 library("knitr")
 library("stringr")
 library("tidyverse")
@@ -16,7 +16,7 @@ source("scripts/chartTwo.R")
 source("scripts/chartThree.R")
 source("scripts/summaryInformation.R")
 source("scripts/summaryInformationTable.R")
-'''
+```
 
 ## Introduction
 For the project, our area of focus is centered on highlighting the disparities
@@ -38,16 +38,19 @@ in voting data within our target marginalized communities.
 
 # Insert summary paragpraph that includes information calculated by your
 # summary information function 
-For the summary information, we decides to focus on these specific areas: 
-Minimum and maximum percentage of racial groups that registered to vote during
-the 2016 Presidential Election,minimum and maximum percentage of racial groups 
-that voted during the 2016 President Election, as well as the ratio comparing
-total women voters to total U.S. population voters and total BIPOC voters to
-total U.S. population voters. 
+As we want to investigate the relationship between Individuals who voted and the election 
+results we wanted to find out the state/federal district with the most votes for both parties in thre 2020 election. 
+``r max_percent_joe`` was the district with the most votes for Biden when the state with the most votes for Trump  was 
+``r max_percent_trump``. We then looked for the state that has the highest population of Black residents which happens to be 
+``r max_race_pop_black``. We found this to be surprising since ``r max_race_pop_black``
+was a red state in the 2020 election. We decided to challenge this discovery and calculate the voter turnout
+in the state which ended up being ``r voter_turnout_ms``%. This rose a lot of hypotheses between our team such as voter suppression. 
+We then decided to check the state with the highest white population and we discovered it was
+``r max_race_pop_white``, which was insfact a red state as well. 
 
 # Render table and describe pertinent observations found in it 
-'''{r summaryInformationTable, echo = FALSE, message =  FALSE}
-'''
+```{r summaryInformationTable, echo = FALSE, message =  FALSE}
+```
 This table reveals many insights to voter behavior. It shows total  individuals voted, 
 total population, and total number registered from each race and gender. We can gather 
 a lot of information on who is more likely to vote and what other affects their access 
@@ -57,16 +60,16 @@ to voting.
 # information found in each chart 
 
 ##chart 1
-'''{r chartOne, echo = FALSE, message =  FALSE}
-'''
+```{r chartOne, echo = FALSE, message =  FALSE}
+```
 This fasted histogram chart is intended to show the relationship between men and women 
 who were registered and voted. The data from this graph allows us to see the 
 difference in voter turnout based on gender. It shows that more women were registered 
 to vote and were more likely to vote.  
 
 ##chart 2
-'''{r chartTwo, echo = FALSE, message =  FALSE}
-'''
+```{r chartTwo, echo = FALSE, message =  FALSE}
+```
 This histogram chart was intended to show the relationship between the number 
 of white individuals who registered and the number of white individuals who 
 voted. The data from this graph then allows us to compare the differences 
@@ -74,8 +77,8 @@ between races in order to asses whether or not there is a significant disparity
 between access to voting even after being registered between race groups.
 
 ##chart 3
-'''{r chartThree, echo = FALSE, message =  FALSE}
-'''
+```{r chartThree, echo = FALSE, message =  FALSE}
+```
 These pie charts were created with the intentions of visualizing the relationship
 between the number of BIPOC individuals who registered to vote versus the
 number of BIPOC individuals who voted within the U.S. 2016 Presidential 
