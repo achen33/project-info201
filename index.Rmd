@@ -19,14 +19,14 @@ source("scripts/summaryInformationTable.R")
 ```
 
 ## Introduction
-For the project, our area of focus is centered analyzing the voting trends and 
+For the project, our area of focus is centered on analyzing the voting trends and 
 patterns in the most recent elections. Specifically, we focused on the voting 
 in the 2020 election between Joe Biden and Donald Trump and looked at the disparities
 in voting trends between each state and county. Our data set also shows us the 
 demographics of the citizens in those counties, so we are also able to notice
 if there are any trends in voting based on gender, race, and any intersectionality
-between the demographics. We are interested in this, because we all feel that issues
-and policies in politics are heavily swayed by gender and race and so analyzing 
+between the demographics. We are interested in this because we all feel that issues
+and policies in politics are heavily swayed by gender and race. Due to that, analyzing 
 the opinions of these groups can help us identify the differences in policies 
 and appeal of each candidate. These issues are especially prevalent today as 
 with the most recent election, most ideas were very polarized and driven by 
@@ -49,7 +49,7 @@ results we wanted to find out the state/federal district with the most votes for
 was a red state in the 2020 election. We decided to challenge this discovery and calculate the voter turnout
 in the state which ended up being ``r voter_turnout_ms``%. This rose a lot of hypotheses between our team such as voter suppression. 
 We then decided to check the state with the highest white population and we discovered it was
-``r max_race_pop_white``, which was insfact a red state as well. 
+``r max_race_pop_white``, which was in fact, a red state as well. 
 
 # Render table and describe pertinent observations found in it 
 ```{r summaryInformationTable, echo = FALSE, message =  FALSE}
@@ -63,17 +63,13 @@ to voting.
 # information found in each chart 
 
 ##chart 1
-```{r line_2016, echo = FALSE, message =  FALSE}
+```{r bar_2016, echo = FALSE, message =  FALSE}
 ```
-```{r line_2020, echo = FALSE, message =  FALSE}
+```{r bar_2020, echo = FALSE, message =  FALSE}
 ```  
-For the first chart, we decided to create two separate line charts to showcase 
-the number of votes per state in the 2016 presidential election, `total_votes16`, versus the number of votes per states in the 2020 presidential election, `total_votes20`. By
-doing this, we are able to observe which states had higher voter turnout, had lower
-voter turnout, as well as the difference between the two different elections. In 
-addition, with this information, we can apply it to what we know about voter 
-disparities and analyze if there are any correlation between that information and 
-the evident numeric data. 
+For the first chart, we decided to create two separate bar charts to showcase 
+the number of votes per state in the 2016 presidential election, `total_votes16`, versus the number of votes per states in the 2020 presidential election, `total_votes20`. By doing this, we are able to observe which states had higher voter turnout, had lower voter turnout, as well as the difference between the two 
+different elections. In addition, with this information, we can apply it to what we know about voter disparities and analyze if there are any correlation between that information and the evident numeric data. 
 
 ##chart 2
 ```{r race_prop, echo = FALSE, message =  FALSE}
@@ -82,15 +78,14 @@ For the second chart, our group focused on proportions. Specifically, which
 proportions of state populations do the racial groups of Hispanic, White, Black,
 Native, Asian, Pacific amount to. To do that, we utilized a stacked bar chart, as 
 we felt that it would be the most fitting visual to showcase this analysis.
-Observing this information allowed us to see which racial groups dominates holds 
+Observing this information allowed us to see which racial groups holds 
 a majority position in which state, and whether or not this demographic trends
-holds any affects for voter turnout and preference of a certain candidate.
+leverages any affects for voter turnout and preference of a certain candidate.
 
 ##chart 3
 ```{r votes_2020, echo = FALSE, message =  FALSE}
 ```
 For the third chart, a scatterplot was created to compare the votes for Donald 
 Trump versus for Joe Biden in the 10 out of 13 considered swing states for the 
-2020 election. By analyzing this, we wanted to see the trends and difference between 
-the two major options for the specified swing states, as well as the amount of votes
-that ultimately lead to the winner of that state's electoral votes. 
+2020 election. By analyzing this, we wanted to see the trends and difference in votes between the two election's candidate for the specified swing states, as well as the 
+amount of votes that ultimately lead to the winner of that state's electoral votes. 
