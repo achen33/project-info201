@@ -19,22 +19,25 @@ source("scripts/summaryInformationTable.R")
 ```
 
 ## Introduction
-For the project, our area of focus is centered on highlighting the disparities
-in access to voting within marginalized communities. Specifically, our target 
-groups are women and the BIPOC community and any intersectionality between the
-two demographics. We are interested in this as we all feel that issues such as
-voter suppression and voter intimidation are still increasingly pervasive 
-systemic issues that have led to a lack in voter engagement and turnout within
-these groups. There are a multitude of existing and new barriers, such as 
-delay with ballot drop-offs via US Postal Service, continual cut of mail 
-ballot drop-off sites, lack of online registration, personal identification 
-requirements and more. With that, our group aims to dive more in-depth into 
-this study to observe where these practices are still prevalent, analyze the 
-number of people it still affects, as well as understand the effects of it on 
-today’s voting processes. Our data set is taken from the U.S. Census Bureau 
-and displays the voting information separated by race and gender. This 
-accumulation of information allows us to analyze any disparities or trends 
-in voting data within our target marginalized communities.
+For the project, our area of focus is centered analyzing the voting trends and 
+patterns in the most recent elections. Specifically, we focused on the voting 
+in the 2020 election between Joe Biden and Donald Trump and looked at the disparities
+in voting trends between each state and county. Our data set also shows us the 
+demographics of the citizens in those counties, so we are also able to notice
+if there are any trends in voting based on gender, race, and any intersectionality
+between the demographics. We are interested in this, because we all feel that issues
+and policies in politics are heavily swayed by gender and race and so analyzing 
+the opinions of these groups can help us identify the differences in policies 
+and appeal of each candidate. These issues are especially prevalent today as 
+with the most recnet election, most ideas were very polarized and driven by 
+prejudices. With that, our group aims to dive more in-depth into this study
+to observe where in the United States each political opinion alligns in order 
+to compare that with the demographics in each location. With this information,
+we can better understand the effects of race and gender on voting trends today.
+Our data set is taken from a csv file with an accumulation of voting data.
+and displays the voting information separated by location and the demographic of 
+each location. This accumulation of information allows us to analyze any 
+disparities or trends in voting data within our target marginalized communities.
 
 # Insert summary paragpraph that includes information calculated by your
 # summary information function 
