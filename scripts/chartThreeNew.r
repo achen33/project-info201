@@ -1,7 +1,7 @@
 # Chart Three: Scatterplot
 
 # Purpose (To be inserted in index.Rmd): 
-# Compare votes for Donald Trump and Joe Biden by within each state for 
+# Compare votes for Donald Trump and Joe Biden by within major swing states for 
 # 2020 election
 
 # Load needed packages: 
@@ -15,6 +15,7 @@ View(county_statistics)
 # Chart Script 
 votes_2020_data <- county_statistics %>%
   group_by(state) %>% 
+ filter(state == "AZ") %>%
   summarize(voted_trump = sum(votes20_Donald_Trump, na.rm = TRUE),
             voted_biden = sum(votes20_Joe_Biden, na.rm = TRUE))
 
@@ -26,5 +27,13 @@ votes_2020 <- ggplot(data = votes_2020_data) +
   
 votes_2020
 
-
+state == "CO",
+state == "FL",
+state == "GA",
+state == "IA",
+state == "MI",
+state == "NC",
+state == "PA",
+state == "TX",
+state == "WI")
 

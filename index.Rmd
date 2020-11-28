@@ -29,7 +29,7 @@ between the demographics. We are interested in this, because we all feel that is
 and policies in politics are heavily swayed by gender and race and so analyzing 
 the opinions of these groups can help us identify the differences in policies 
 and appeal of each candidate. These issues are especially prevalent today as 
-with the most recnet election, most ideas were very polarized and driven by 
+with the most recent election, most ideas were very polarized and driven by 
 prejudices. With that, our group aims to dive more in-depth into this study
 to observe where in the United States each political opinion alligns in order 
 to compare that with the demographics in each location. With this information,
@@ -63,29 +63,34 @@ to voting.
 # information found in each chart 
 
 ##chart 1
-```{r chartOne, echo = FALSE, message =  FALSE}
+```{r line_2016, echo = FALSE, message =  FALSE}
 ```
-This fasted histogram chart is intended to show the relationship between men and women 
-who were registered and voted. The data from this graph allows us to see the 
-difference in voter turnout based on gender. It shows that more women were registered 
-to vote and were more likely to vote.  
+```{r line_2020, echo = FALSE, message =  FALSE}
+```  
+For the first chart, we decided to create two separate line charts to showcase 
+the number of votes per state in the 2016 presidential election, `total_votes16`, versus the number of votes per states in the 2020 presidential election, `total_votes20`. By
+doing this, we are able to observe which states had higher voter turnout, had lower
+voter turnout, as well as the difference between the two different elections. In 
+addition, with this information, we can apply it to what we know about voter 
+disparities and analyze if there are any correlation between that information and 
+the evident numeric data. 
 
 ##chart 2
-```{r chartTwo, echo = FALSE, message =  FALSE}
+```{r race_prop, echo = FALSE, message =  FALSE}
 ```
-This histogram chart was intended to show the relationship between the number 
-of white individuals who registered and the number of white individuals who 
-voted. The data from this graph then allows us to compare the differences 
-between races in order to asses whether or not there is a significant disparity
-between access to voting even after being registered between race groups.
+For the second chart, our group focused on proportions. Specifically, which
+proportions of state populations do the racial groups of Hispanic, White, Black,
+Native, Asian, Pacific amount to. To do that, we utilized a stacked bar chart, as 
+we felt that it would be the most fitting visual to showcase this analysis.
+Observing this information allowed us to see which racial groups dominates holds 
+a majority position in which state, and whether or not this demographic trends
+holds any affects for voter turnout and preference of a certain candidate.
 
 ##chart 3
-```{r chartThree, echo = FALSE, message =  FALSE}
+```{r votes_2020, echo = FALSE, message =  FALSE}
 ```
-These pie charts were created with the intentions of visualizing the relationship
-between the number of BIPOC individuals who registered to vote versus the
-number of BIPOC individuals who voted within the U.S. 2016 Presidential 
-Election. Similar to the other two charts, while this chart highlights a
-different demographic, it will allow us to compare the statistics 
-of voter registration between different genders and race groups to observe any
-possible disparities. 
+For the third chart, a scatterplot was created to compare the votes for Donald 
+Trump versus for Joe Biden in the 10 out of 13 considered swing states for the 
+2020 election. By analyzing this, we wanted to see the trends and difference between 
+the two major options for the specified swing states, as well as the amount of votes
+that ultimately lead to the winner of that state's electoral votes. 
