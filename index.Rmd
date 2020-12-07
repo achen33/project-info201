@@ -4,45 +4,41 @@ author: "Audrey Chen, Selina Dinh, Hadar Dolev"
 date: "11/12/2020"
 output: html_document
 ---
-#Exploratory Analysis
+# Exploratory Analysis
 
 ```{r setup, include = FALSE}
 library("knitr")
 library("stringr")
 library("tidyverse")
 library("ggplot2")
-source("scripts/chartOne.R")
-source("scripts/chartTwo.R")
-source("scripts/chartThree.R")
+source("scripts/chartOneNew.R")
+source("scripts/chartTwoNew.R")
+source("scripts/chartThreeNew.R")
 source("scripts/summaryInformation.R")
 source("scripts/summaryInformationTable.R")
 ```
 
-## Introduction
-For the project, our area of focus is centered on analyzing the voting trends and 
-patterns in the most recent elections. Specifically, we focused on the voting 
-in the 2020 election between Joe Biden and Donald Trump and looked at the disparities
-in voting trends between each state and county. Our data set also shows us the 
-demographics of the citizens in those counties, so we are also able to notice
-if there are any trends in voting based on gender, race, and any intersectionality
-between the demographics. We are interested in this because we all feel that issues
-and policies in politics are heavily swayed by gender and race. Due to that, analyzing 
-the opinions of these groups can help us identify the differences in policies 
-and appeal of each candidate. These issues are especially prevalent today as 
-with the most recent election, most ideas were very polarized and driven by 
-prejudices. With that, our group aims to dive more in-depth into this study
-to observe where in the United States each political opinion alligns in order 
-to compare that with the demographics in each location. With this information,
-we can better understand the effects of race and gender on voting trends today.
-Our data set is taken from a csv file with an accumulation of voting data.
-and displays the voting information separated by location and the demographic of 
-each location. This accumulation of information allows us to analyze any 
-disparities or trends in voting data within our target marginalized communities.
+# Introduction
+For the project, our area of focus is centered on analyzing the voting trends 
+and patterns in the most recent elections. Specifically, we focused on the 
+voting in the 2020 election between Joe Biden and Donald Trump and looked at 
+the disparities in voting trends between each state and county. Our data set 
+also shows us the demographics of the citizens in those counties, so we are 
+also able to notice if there are any trends in voting based on gender, race, and any intersectionality between the demographics. We are interested in this 
+because we all feel that issues and policies in politics are heavily swayed by gender and race. Due to that, analyzing the opinions of these groups can help 
+us identify the differences in policies and appeal of each candidate. These 
+issues are especially prevalent today as with the most recent election, most
+ideas were very polarized and driven by prejudices. With that, our group aims 
+to dive more in-depth into this study to observe where in the United States
+each political opinion alligns in order to compare that with the demographics 
+in each location. With this information, we can better understand the effects 
+of race and gender on voting trends today. Our data set is taken from a csv file with an accumulation of voting data and displays the voting information 
+separated by location and the demographic of each location. This accumulation
+of information allows us to analyze any disparities or trends in voting data within our target marginalized communities.
 
 # Insert summary paragpraph that includes information calculated by your
 # summary information function 
-As we want to investigate the relationship between Individuals who voted and the election 
-results we wanted to find out the state/federal district with the most votes for both parties in thre 2020 election. 
+As we want to investigate the relationship between Individuals who voted and the election results we wanted to find out the state/federal district with the most votes for both parties in the 2020 election. 
 ``r max_percent_joe`` was the district with the most votes for Biden when the state with the most votes for Trump  was 
 ``r max_percent_trump``. We then looked for the state that has the highest population of Black residents which happens to be 
 ``r max_race_pop_black``. We found this to be surprising since ``r max_race_pop_black``
@@ -52,27 +48,25 @@ We then decided to check the state with the highest white population and we disc
 ``r max_race_pop_white``, which was in fact, a red state as well. 
 
 # Render table and describe pertinent observations found in it 
-```{r summaryInformationTable, echo = FALSE, message =  FALSE}
+```{r summaryInformationTable, echo = TRUE, message =  FALSE}
 ```
-This table reveals many insights to voter behavior. It shows total  individuals voted, 
-total population, and total number registered from each race and gender. We can gather 
-a lot of information on who is more likely to vote and what other affects their access 
-to voting. 
+This table reveals many insights to voter behavior. It shows total individuals voted, total population, and total number registered from each race and gender.
+We can gather a lot of information on who is more likely to vote and what other affects their access to voting. 
 
 # Describe the purpose of each chart, render each chart, and describe pertinent
 # information found in each chart 
 
 ##chart 1
-```{r bar_2016, echo = FALSE, message =  FALSE}
+```{r bar_2016, echo = TRUE, message =  FALSE}
 ```
-```{r bar_2020, echo = FALSE, message =  FALSE}
+```{r bar_2020, echo = TRUE, message =  FALSE}
 ```  
 For the first chart, we decided to create two separate bar charts to showcase 
 the number of votes per state in the 2016 presidential election, `total_votes16`, versus the number of votes per states in the 2020 presidential election, `total_votes20`. By doing this, we are able to observe which states had higher voter turnout, had lower voter turnout, as well as the difference between the two 
 different elections. In addition, with this information, we can apply it to what we know about voter disparities and analyze if there are any correlation between that information and the evident numeric data. 
 
 ##chart 2
-```{r race_prop, echo = FALSE, message =  FALSE}
+```{r race_prop, echo = TRUE, message =  FALSE}
 ```
 For the second chart, our group focused on proportions. Specifically, which
 proportions of state populations do the racial groups of Hispanic, White, Black,
@@ -83,7 +77,7 @@ a majority position in which state, and whether or not this demographic trends
 leverages any affects for voter turnout and preference of a certain candidate.
 
 ##chart 3
-```{r votes_2020, echo = FALSE, message =  FALSE}
+```{r votes_2020, echo = TRUE, message =  FALSE}
 ```
 For the third chart, a scatterplot was created to compare the votes for Donald 
 Trump versus for Joe Biden in the 10 out of 13 considered swing states for the 
