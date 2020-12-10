@@ -19,10 +19,23 @@ intro_panel <- tabPanel(
     p("By: Audrey, Selina, Hadar"),
     h3("Introduction"),
     img(src = "https://i.guim.co.uk/img/media/ea344028ac2fe5a1c1db9d55adcfaf01951f7777/0_60_3500_2100/master/3500.jpg?width=445&quality=85&auto=format&fit=max&s=433342dd5a78238a336fc994602d1bda",height="400", width="600"),
-    p("introduction"),
-    p(
-        "This bka bla bla"
-    )
+    p("Throughout the years, disparities within voter turnout and trends increasingly 
+      become a topic for heated debated -- This is especially true nearing presidential elections. Such questions that arises are:
+          
+          - What affects the disparities within voter turnout and trends?
+          - To what extent does gender (Specifically, male versus female), race or any other
+      social classifications affect these statistics?
+          - Which parties/candidates do certain gender and race gear towards? (Waiting on Audrey for   third takeaway)
+      
+      With that said, we are interested in this because our group feels that issues and 
+      policies in politics are heavily swayed by gender and race. We also recognized that marginalized communities are usually not as representativce in voting, so we centered our study around that. In short, these issues are especially prevalent today as with the most recent election, most ideas were very polarized and driven by prejudices.
+      
+      For this project, we have been using the data set of `county.csv` to analyze our 
+      question. This data set has an accumulation of voting data and displays the voting information separated by location and the demographic of each location. Honing in on both the 2016 and 2020 presidential election, we observed how
+      voting trends have differed or stayed the same. From that, we looked at how 
+      gender and race plays a role in the numbers. Specifically, we looked at what the 
+      trends looked like for the white populace versus for marginalized communitiies, as 
+      BIPOC are our target group of focus. ")
 )
 
 
