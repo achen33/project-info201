@@ -13,6 +13,16 @@ us_election <- county_statistics_1_copy %>%
   select(state, votes20_Donald_Trump, votes20_Joe_Biden, total_votes20, TotalPop, county, White, Asian, Black, Hispanic, Pacific, Native) 
 #filter(iso_code != "")
 
+state_votes <- us_election %>%
+  group_by(state) %>%
+  summarize(
+    voted_trump = sum(votes20_Donald_Trump, na.rm = TRUE),
+    voted_biden = sum(votes20_Joe_Biden, na.rm = TRUE)
+  ) 
+
+
+  
+  
 
 # First Tab which includes the introduction.
 intro_panel <- tabPanel(
@@ -40,36 +50,35 @@ intro_panel <- tabPanel(
       BIPOC are our target group of focus. ")
 )
 
+list_states <- new_election_df$state
+
 
 # total votes
 total_votes_sidebar <- sidebarPanel(
   p("Find total votes"),
   selectInput( 
-    inputId = "downlist",
-    label = h3("Choose a state"),
-    choices = us_election$state
-  )
+    inputId = "sel_states",
+    label = "Choose a state",
+    choices = list_states, 
+    selected = "WA")
 )
 
-# population
 total_votes_content <- mainPanel(
-  plotOutput("total_votes_graph")
+  plotlyOutput("trump_biden_plot")
+  
 )
 
-# population 
 total_votes_panel <- tabPanel(
   "Total Votes",
-  
   titlePanel("total votes of each state"),
-  
   sidebarLayout(total_votes_sidebar,
                 total_votes_content)
-)
+  )
 
 
 # race
 race_sidebar <- sidebarPanel(
-  checkboxGroupInput("select", label = h3("Check Race"), 
+  checkboxGroupInput("races", label = h3("Check Race"), 
                      choices = list("White" = us_election$White, "Black" = us_election$Black, 
                                     "Hispanic" = us_election$Hispanic,
                                     "Pacific" = us_election$Pacific, "Asian" = us_election$Asian)
@@ -96,8 +105,8 @@ race_panel <- tabPanel(
 
 # vote
 vote_sidebar <- sidebarPanel(
-  radioButtons("radio", label = h3("Choose a state"),
-               choices = list("AZ" = us_election$state , "CO" = us_election$state , "FL" = us_election$state , "GA" = us_election$state
+  checkboxGroupInput("states", label = h3("Choose a state"),
+               choices = list("AZ" = "AZ" , "CO" = us_election$state , "FL" = us_election$state , "GA" = us_election$state
                               , "IA" = us_election$state , "MI" = us_election$state , "NC" = us_election$state , "PA" = us_election$state
                               , "TX" = us_election$state, "WI" = us_election$state)
                )

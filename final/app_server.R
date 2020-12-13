@@ -4,33 +4,47 @@ library(plotly)
 library(shiny)
 library(ggplot2)
 
+library(readxl)
+
+new_election_df <- read_excel("new_election_df.xlsx",
+                              col_types = c("text", "text", "numeric"))
+
+  # server1 ---------
+  create_elec_plot <- function(df, sel_states) {
+    election_color <- c("blue", "red")
+    
+    df <- df %>%
+      filter(state == sel_states) 
+    
+    trump_biden_plot <- ggplot(data = df, aes(x = candidate, y = votes, color = candidate, fill = candidate)) +
+      geom_bar(stat='identity') + 
+      scale_color_manual(values = election_color) +
+      scale_fill_manual(values = election_color)
+  }
+  
+  # server2 output plot ---------
 
 server <- function(input, output) {
-  output$total_votes_graph <- renderPlot({ 
-    bar_2020_data <- us_election %>%
-      select(state, total_votes20, votes20_Joe_Biden, votes20_Donald_Trump) %>%
-      group_by(state) %>%
-      summarize(biden_votes = sum(votes20_Joe_Biden, na.rm = TRUE), trump_votes = sum(votes20_Donald_Trump, na.rm = TRUE)) %>%
-      mutate(biden_votes, trump_votes) %>%
-      #filter(state == "WA")
-      filter(state == input$downlist)
-    
-    turned_table <-  t(bar_2020_data)
-    colnames(turned_table) <- c("canidate")
-
-    output$value <- renderPrint({input$downlist}) 
-    
-    ggplot(data = turned_table) +
-      geom_col(mapping = aes(x = state , y = canidate)) +
-      ggtitle("Total Votes by State in 2020 President Election")
-  })
   
+  # new_election_df$candidate <- factor(
+  #   new_election_df$candidate, 
+  #   levels = c("Trump", "Biden")
+  #   )
+  
+
+  output$trump_biden_plot <- renderPlotly({
+    return(create_elec_plot(new_election_df, input$sel_states))
+  
+  })
+
+
+####################################  
   output$race_graph <- renderPlot({ 
     race_prop_data <- county_statistics_1_copy %>%
       select(state, Hispanic, White, Black, Native, Asian, Pacific) %>%
       gather(key = race, value = population, -state)
     
-    output$value <- renderPrint({input$select}) 
+    output$value <- renderPrint({input$races}) 
     
     ggplot(data = race_prop_data) +
       geom_col(mapping = aes(
@@ -42,8 +56,8 @@ server <- function(input, output) {
   })
   
   output$vote_graph <- renderPlot({ 
-    votes_2020_data <- us_election %>%
-      filter(state == input$radio) %>%
+    votes_2020_data <- county_statistics_1_copy %>%
+      select(state == input$states) %>%
       group_by(state) %>%
       summarize(
         voted_trump = sum(votes20_Donald_Trump, na.rm = TRUE),
@@ -51,12 +65,13 @@ server <- function(input, output) {
       ) 
     
     
-    output$value <- renderPrint({input$radio})   
+    output$value <- renderPrint({input$states})   
     
     ggplot(data = votes_2020_data) +
       geom_point(mapping = aes(
         x = voted_trump,
-        y = voted_biden
+        y = voted_biden,
+        color = state
       )) +
       ggtitle("Comparison of State Votes for Trump vs. Biden")
     
