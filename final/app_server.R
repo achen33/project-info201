@@ -8,7 +8,6 @@ library(readxl)
 
 new_election_df <- read_excel("new_election_df.xlsx",
                               col_types = c("text", "text", "numeric"))
-
   # server1 ---------
   create_elec_plot <- function(df, sel_states) {
     election_color <- c("blue", "red")
@@ -21,7 +20,27 @@ new_election_df <- read_excel("new_election_df.xlsx",
       scale_color_manual(values = election_color) +
       scale_fill_manual(values = election_color)
   }
+
+##Vote df
+# Load data
+county_statistics <- read.csv("https://raw.githubusercontent.com/achen33/project-info201/main/final/county_statistics%20(1)%20copy.csv")
+
+# Chart Script
+
+create_vote_plot <- function(county_statistics, sel_states) {
   
+  df <- county_statistics %>%
+    filter(state == sel_states) 
+
+votes_plot <- ggplot(data = county_statistics, aes(x = candidate,
+                                                   y = votes, color = candidate,
+                                                   fill = candidate)) +
+  geom_point(mapping = aes(
+    x = voted_trump,
+    y = voted_biden,
+    color = state
+  )) 
+}
   # server2 output plot ---------
 
 server <- function(input, output) {

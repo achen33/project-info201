@@ -4,8 +4,9 @@ library(plotly)
 library(rsconnect)
 library(dplyr)
 library(readr)
+library(ggplot2)
 
-county_statistics_1_copy <- read_csv("county_statistics (1) copy.csv")
+votes_data <- read_csv("county_statistics (1) copy.csv")
 
 
 
@@ -20,14 +21,12 @@ state_votes <- us_election %>%
     voted_biden = sum(votes20_Joe_Biden, na.rm = TRUE)
   ) 
 
-
-  
   
 
 # First Tab which includes the introduction.
 intro_panel <- tabPanel(
   "Introduction",
-  titlePanel("title of project"),
+  titlePanel("Voting Trends in the United States"),
   p("By: Audrey, Selina, Hadar"),
   h3("Introduction"),
   img(src = "https://i.guim.co.uk/img/media/ea344028ac2fe5a1c1db9d55adcfaf01951f7777/0_60_3500_2100/master/3500.jpg?width=445&quality=85&auto=format&fit=max&s=433342dd5a78238a336fc994602d1bda",height="400", width="600"),
@@ -65,7 +64,6 @@ total_votes_sidebar <- sidebarPanel(
 
 total_votes_content <- mainPanel(
   plotlyOutput("trump_biden_plot")
-  
 )
 
 total_votes_panel <- tabPanel(
@@ -73,7 +71,7 @@ total_votes_panel <- tabPanel(
   titlePanel("total votes of each state"),
   sidebarLayout(total_votes_sidebar,
                 total_votes_content)
-  )
+)
 
 
 # race
@@ -88,7 +86,7 @@ race_sidebar <- sidebarPanel(
 
 # race 
 race_content <- mainPanel(
-  plotOutput("race_graph")
+  plotlyOutput("race_graph")
 )
 
 
@@ -102,33 +100,29 @@ race_panel <- tabPanel(
                 race_content)
 )
 
+#votes
+votes_sidebar <- sidebarPanel(
+  p("Find Voting Trends"),
+  selectInput( 
+    inputId = "sel_states",
+    label = "Choose a state",
+    choices = list_states, 
+    selected = "WA")
+)
 
-# vote
-vote_sidebar <- sidebarPanel(
-  checkboxGroupInput("states", label = h3("Choose a state"),
-               choices = list("AZ" = "AZ" , "CO" = us_election$state , "FL" = us_election$state , "GA" = us_election$state
-                              , "IA" = us_election$state , "MI" = us_election$state , "NC" = us_election$state , "PA" = us_election$state
-                              , "TX" = us_election$state, "WI" = us_election$state)
-               )
+votes_content <- mainPanel(
+  plotlyOutput("votes_plot")
 )
 
 
-
-# vote
-vote_content <- mainPanel(
-  plotOutput("vote_graph")
-)
-
-
-# vote
 vote_panel <- tabPanel(
   "Votes Graph",
-  
-  titlePanel("graph title here"),
-  
-  sidebarLayout(vote_sidebar,
-                vote_content)
+  titlePanel("Voting Trends in Each Swing State"),
+  sidebarLayout(votes_sidebar,
+                votes_content)
 )
+
+
 
 # First Tab which includes the introduction.
 summary_panel <- tabPanel(
@@ -155,7 +149,8 @@ summary_panel <- tabPanel(
   number of votes, but that ultimately had more Joe Biden votes than Donald 
   Trump votes, the race populations in these states were less significantly 
   dispersed, leading to a correlated less dispersed voting trends. 
-    ")
+    "),
+  img(src = "https://i2.wp.com/www.brookings.edu/wp-content/uploads/2019/11/20191107_Metro_Election-results_Map-.png?w=768&crop=0%2C0px%2C100%2C9999px&ssl=1",height="400", width="600")
 )
 
 # Create overall ui by calling the into panel and plot panel
