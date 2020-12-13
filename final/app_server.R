@@ -27,10 +27,9 @@ county_statistics <- read.csv("https://raw.githubusercontent.com/achen33/project
 
 # Chart Script
 
-create_vote_plot <- function(county_statistics, sel_states) {
-  
+create_vote_plot <- function(county_statistics, select_states) {
   df <- county_statistics %>%
-    filter(state == sel_states) 
+    filter(state == select_states) 
 
 votes_plot <- ggplot(data = county_statistics, aes(x = candidate,
                                                    y = votes, color = candidate,

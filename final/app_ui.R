@@ -68,7 +68,15 @@ total_votes_content <- mainPanel(
 
 total_votes_panel <- tabPanel(
   "Total Votes",
-  titlePanel("total votes of each state"),
+  titlePanel("Total votes of each state"),
+  h3("This chart displays the total votes for each candidate
+    in each of the swing states. We wanted to used this chart to display the 
+    different number of votes in each of 
+     swing states to see the comparison between those who voted for Biden
+     and those who voted for Trump in the election. From the chart, we can see
+     that in each of these states the number of votes for each candidate are
+     much closser to each other in these states than non-swing states which 
+     indicates the importance of the outcomes in these states."),
   sidebarLayout(total_votes_sidebar,
                 total_votes_content)
 )
@@ -94,8 +102,15 @@ race_content <- mainPanel(
 race_panel <- tabPanel(
   "Race Graph",
   
-  titlePanel("graph title here"),
-  
+  titlePanel("Race Voting Trends"),
+  h3("This chart displays the votes for each candidate from each race group. 
+   We wanted to used this chart to display the differences in voting trends 
+   between each race group in order to see the comparison between those who 
+   voted for Biden and those who voted for Trump in the election and look for 
+   any correlations between race and political opinion. From the chart, we can 
+   see that the majority of people of color are much more inclined to vote for 
+     Biden which shows that race plays a role in the voting trends and may
+     account for the state voting difference as well."),
   sidebarLayout(race_sidebar,
                 race_content)
 )
@@ -104,7 +119,7 @@ race_panel <- tabPanel(
 votes_sidebar <- sidebarPanel(
   p("Find Voting Trends"),
   selectInput( 
-    inputId = "sel_states",
+    inputId = "select_states",
     label = "Choose a state",
     choices = list_states, 
     selected = "WA")
@@ -118,6 +133,14 @@ votes_content <- mainPanel(
 vote_panel <- tabPanel(
   "Votes Graph",
   titlePanel("Voting Trends in Each Swing State"),
+  h3("This chart displays the total votes for each candidate
+    in each of the swing states. We wanted to used this chart to display the 
+    different number of votes in each of 
+     swing states to see the comparison between those who voted for Biden
+     and those who voted for Trump in the election. From the chart, we can see
+     that in each of these states the number of votes for each candidate are
+     much closser to each other in these states than non-swing states which 
+     indicates the importance of the outcomes in these states."),
   sidebarLayout(votes_sidebar,
                 votes_content)
 )
