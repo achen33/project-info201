@@ -6,11 +6,11 @@ library(dplyr)
 library(readr)
 library(ggplot2)
 
-votes_data <- read_csv("county_statistics (1) copy.csv")
+
+county_statistics <- read.csv("https://raw.githubusercontent.com/achen33/project-info201/main/final/county_statistics%20(1)%20copy.csv")
 
 
-
-us_election <- county_statistics_1_copy %>%
+us_election <- county_statistics %>%
   select(state, votes20_Donald_Trump, votes20_Joe_Biden, total_votes20, TotalPop, county, White, Asian, Black, Hispanic, Pacific, Native) 
 #filter(iso_code != "")
 
@@ -21,7 +21,19 @@ state_votes <- us_election %>%
     voted_biden = sum(votes20_Joe_Biden, na.rm = TRUE)
   ) 
 
+
+race_pop_df <- county_statistics %>%
+  select(state, Hispanic, White, Black, Native, Asian, Pacific) %>% 
+  gather(key = race, value = population, -state) 
   
+states_for_list <- state_votes %>%
+  select(state) %>%
+  filter (state == "AZ" | state == "CO" | state == "FL" | state == "GA"
+          | state == "IA" | state == "MI" | state == "NC" | state == "PA"
+          | state == "TX" | state == "WI")
+
+swing_states_list <- states_for_list$state
+
 
 # First Tab which includes the introduction.
 intro_panel <- tabPanel(
@@ -82,13 +94,14 @@ total_votes_panel <- tabPanel(
 )
 
 
+
 # race
 race_sidebar <- sidebarPanel(
-  checkboxGroupInput("races", label = h3("Check Race"), 
-                     choices = list("White" = us_election$White, "Black" = us_election$Black, 
-                                    "Hispanic" = us_election$Hispanic,
-                                    "Pacific" = us_election$Pacific, "Asian" = us_election$Asian)
-  )
+  radioButtons(
+    inputId = "radio", 
+    label = "select state", 
+    choices = swing_states_list,
+    selected = "AZ")
 )
 
 
@@ -118,11 +131,11 @@ race_panel <- tabPanel(
 #votes
 votes_sidebar <- sidebarPanel(
   p("Find Voting Trends"),
-  selectInput( 
-    inputId = "select_states",
-    label = "Choose a state",
-    choices = list_states, 
-    selected = "WA")
+  checkboxGroupInput(
+    inputId = "select_state", 
+    label = "select states:", 
+    choices = swing_states_list,
+    selected = swing_states_list )
 )
 
 votes_content <- mainPanel(
