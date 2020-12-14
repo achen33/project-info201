@@ -1,3 +1,4 @@
+# Load needed packages 
 library(shiny) 
 library(tidyverse)
 library(plotly)
@@ -6,10 +7,10 @@ library(dplyr)
 library(readr)
 library(ggplot2)
 
-
+# Load data set 
 county_statistics <- read.csv("https://raw.githubusercontent.com/achen33/project-info201/main/final/county_statistics%20(1)%20copy.csv")
 
-
+# Filter data set to extract needed information 
 us_election <- county_statistics %>%
   select(state, votes20_Donald_Trump, votes20_Joe_Biden, total_votes20, TotalPop, county, White, Asian, Black, Hispanic, Pacific, Native) 
 #filter(iso_code != "")
@@ -20,7 +21,6 @@ state_votes <- us_election %>%
     voted_trump = sum(votes20_Donald_Trump, na.rm = TRUE),
     voted_biden = sum(votes20_Joe_Biden, na.rm = TRUE)
   ) 
-
 
 race_pop_df <- county_statistics %>%
   select(state, Hispanic, White, Black, Native, Asian, Pacific) %>% 
@@ -34,37 +34,51 @@ states_for_list <- state_votes %>%
 
 swing_states_list <- states_for_list$state
 
-
-# First Tab which includes the introduction.
+## Introduction Tab 
 intro_panel <- tabPanel(
   "Introduction",
   titlePanel("Voting Trends in the United States"),
-  p("By: Audrey, Selina, Hadar"),
+  p("By: Audrey Chen, Selina Dinh, Hadar Dolev"),
   h3("Introduction"),
-  img(src = "https://i.guim.co.uk/img/media/ea344028ac2fe5a1c1db9d55adcfaf01951f7777/0_60_3500_2100/master/3500.jpg?width=445&quality=85&auto=format&fit=max&s=433342dd5a78238a336fc994602d1bda",height="400", width="600"),
-  p("Throughout the years, disparities within voter turnout and trends increasingly 
-      become a topic for heated debated -- This is especially true nearing presidential elections. Such questions that arises are:
-          
-          - What affects the disparities within voter turnout and trends?
-          - To what extent does gender (Specifically, male versus female), race or any other
-      social classifications affect these statistics?
-          - Which parties/candidates do certain gender and race gear towards? (Waiting on Audrey for   third takeaway)
+  img(src = "https://i.guim.co.uk/img/media/ea344028ac2fe5a1c1db9d55adcfaf01951f
+      7777/0_60_3500_2100/master/3500.jpg?width=445&quality=85&auto=format&fit=
+      max&s=433342dd5a78238a336fc994602d1bda",height="400", width="600"),
+  p(
+  "Throughout the years, disparities within voter turnout and trends increasingly 
+      become a topic for heated debated -- This is especially true nearing 
+      presidential elections. Such questions that arises are:
       
-      With that said, we are interested in this because our group feels that issues and 
-      policies in politics are heavily swayed by gender and race. We also recognized that marginalized communities are usually not as representativce in voting, so we centered our study around that. In short, these issues are especially prevalent today as with the most recent election, most ideas were very polarized and driven by prejudices.
-      
-      For this project, we have been using the data set of `county.csv` to analyze our 
-      question. This data set has an accumulation of voting data and displays the voting information separated by location and the demographic of each location. Honing in on both the 2016 and 2020 presidential election, we observed how
-      voting trends have differed or stayed the same. From that, we looked at how 
-      gender and race plays a role in the numbers. Specifically, we looked at what the 
-      trends looked like for the white populace versus for marginalized communitiies, as 
-      BIPOC are our target group of focus. ")
+      (1) What affects the disparities within voter turnout and trends?
+      (2) To what extent does raceaffect these statistics?
+      (3) How impactful are swing states in dictating the election's victory?"
+  ),
+  p(
+    "With that said, we are interested in this because our group feels that 
+      issues and policies in politics are heavily swayed by various factors, especially
+      the demographics and social classfications. We also recognized that 
+      marginalized communities are usually not as representative in voting, 
+      so we centered our study around that to measuere their levels of involvement
+      was for this election. In short, when it comes to voting and elections with 
+      such high magnitude, it is impertinent that we observce with a scope of 
+      different perspectives." 
+    ),
+  p(
+  "For this project, we have been using the data set of `county.csv` to 
+      analyze our question. This data set has an accumulation of voting data and
+      displays the voting information separated by location and the demographic of 
+      each location. Honing in on both the 2016 and 2020 presidential election, 
+      we observed how voting trends have differed or stayed the same. From that,
+      we looked at how race plays a role in the numbers. 
+      Specifically, we looked at what the trends looked like for the white 
+      populace versus for marginalized communitiies, as BIPOC are our target
+      group of focus."
+    )
 )
 
 list_states <- new_election_df$state
 
-
-# total votes
+## Charts Tabs 
+# Chart 1: Total Votes 
 total_votes_sidebar <- sidebarPanel(
   p("Find total votes"),
   selectInput( 
@@ -87,15 +101,13 @@ total_votes_panel <- tabPanel(
      swing states to see the comparison between those who voted for Biden
      and those who voted for Trump in the election. From the chart, we can see
      that in each of these states the number of votes for each candidate are
-     much closser to each other in these states than non-swing states which 
+     much closer to each other in these states than non-swing states which 
      indicates the importance of the outcomes in these states."),
   sidebarLayout(total_votes_sidebar,
                 total_votes_content)
 )
 
-
-
-# race
+# Chart 2: Race
 race_sidebar <- sidebarPanel(
   radioButtons(
     inputId = "radio", 
@@ -104,17 +116,12 @@ race_sidebar <- sidebarPanel(
     selected = "AZ")
 )
 
-
-# race 
 race_content <- mainPanel(
   plotlyOutput("race_graph")
 )
 
-
-# Race 
 race_panel <- tabPanel(
   "Race Graph",
-  
   titlePanel("Race Voting Trends"),
   h3("This chart displays the votes for each candidate from each race group. 
    We wanted to used this chart to display the differences in voting trends 
@@ -128,7 +135,7 @@ race_panel <- tabPanel(
                 race_content)
 )
 
-#votes
+# Chart 3: Votes 
 votes_sidebar <- sidebarPanel(
   p("Find Voting Trends"),
   checkboxGroupInput(
@@ -141,7 +148,6 @@ votes_sidebar <- sidebarPanel(
 votes_content <- mainPanel(
   plotlyOutput("votes_plot")
 )
-
 
 vote_panel <- tabPanel(
   "Votes Graph",
@@ -158,9 +164,7 @@ vote_panel <- tabPanel(
                 votes_content)
 )
 
-
-
-# First Tab which includes the introduction.
+## Summary Tab 
 summary_panel <- tabPanel(
   "Summary",
   titlePanel("Summary and Takeaways"),
@@ -189,7 +193,7 @@ summary_panel <- tabPanel(
   img(src = "https://i2.wp.com/www.brookings.edu/wp-content/uploads/2019/11/20191107_Metro_Election-results_Map-.png?w=768&crop=0%2C0px%2C100%2C9999px&ssl=1",height="400", width="600")
 )
 
-# Create overall ui by calling the into panel and plot panel
+# Create overall UI
 ui <- fluidPage(
   navbarPage(
     "US Election",
@@ -199,5 +203,10 @@ ui <- fluidPage(
     vote_panel,
     summary_panel
   )
+)
+
+# Layout 
+ui <- navbarPage(
+  includeCSS("style.css")
 )
 

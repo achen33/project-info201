@@ -1,0 +1,21 @@
+  body{
+    background-color: #f2e9e4;
+  }
+  titlePanel{
+    font-family: "Times New Roman";
+    font-weight: normal;
+    font-weight: bold;
+    color: #22223b;
+  }
+  h3{
+    font-family:"Times New Roman";
+    font-weight: lighter;
+    font-weight: bold;
+    color: #4a4e69;
+  }
+  p{
+    font-family: "Times New Roman";
+    font-weight: normal;
+    color: #9a8c98;
+  }
+  

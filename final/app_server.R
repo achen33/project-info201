@@ -9,7 +9,7 @@ new_election_df <- read_excel("new_election_df.xlsx",
                               col_types = c("text", "text", "numeric"))
 county_statistics <- read.csv("https://raw.githubusercontent.com/achen33/project-info201/main/final/county_statistics%20(1)%20copy.csv")
 
- ##############################chart 1 ########################################
+###############################Chart 1########################################
 # server1 <- chart 1
 #sel_states
 create_elec_plot <- function(df, sel_states) {
@@ -23,7 +23,7 @@ create_elec_plot <- function(df, sel_states) {
     scale_color_manual(values = election_color) +
     scale_fill_manual(values = election_color)
 }
-#############################Chart 2####################################
+###############################Chart 2########################################
 
 create_race_plot <- function(race_pop_df, radio) {
   
@@ -43,7 +43,7 @@ create_race_plot <- function(race_pop_df, radio) {
     )) +
     ggtitle("Racial Proportions of State Populations")
 }
-#############################chart 3 ############################################
+###############################Chart 3########################################
 # server1 <- chart 3
 
 # Chart Script
@@ -57,17 +57,16 @@ create_vote_plot <- function(county_statistics, select_state) {
       voted_biden = sum(votes20_Joe_Biden, na.rm = TRUE)
     ) 
   
-  votes_plot <- ggplot(data = df3, aes(x = voted_trump,
-                                      y = voted_biden)) +
+  votes_plot <- ggplot(data = df3, aes(x = "Voted for Trump",
+                                      y = "Voted for Biden")) +
     geom_point(mapping = aes(
-      x = voted_trump,
-      y = voted_biden,
+      x = "Voted for Trump",
+      y = "Voted for Biden",
       color = state
     )) 
 }
 
-  
-##############################################server 2####################################################3
+###############################Server 2#######################################
 
   server <- function(input, output) {
     output$trump_biden_plot <- renderPlotly({
@@ -88,7 +87,7 @@ create_vote_plot <- function(county_statistics, select_state) {
     
 
 
-####################################  
+##############################################################################
 
   
 
