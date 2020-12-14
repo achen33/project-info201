@@ -40,17 +40,15 @@ intro_panel <- tabPanel(
   titlePanel("Voting Trends in the United States"),
   p("By: Audrey Chen, Selina Dinh, Hadar Dolev"),
   h3("Introduction"),
-  img(src = "https://i.guim.co.uk/img/media/ea344028ac2fe5a1c1db9d55adcfaf01951f
-      7777/0_60_3500_2100/master/3500.jpg?width=445&quality=85&auto=format&fit=
-      max&s=433342dd5a78238a336fc994602d1bda",height="400", width="600"),
+  img(src = "https://i.guim.co.uk/img/media/ea344028ac2fe5a1c1db9d55adcfaf01951f7777/0_60_3500_2100/master/3500.jpg?width=445&quality=85&auto=format&fit=max&s=433342dd5a78238a336fc994602d1bda",height="400", width="600"),
   p(
   "Throughout the years, disparities within voter turnout and trends increasingly 
       become a topic for heated debated -- This is especially true nearing 
-      presidential elections. Such questions that arises are:
-      
-      (1) What affects the disparities within voter turnout and trends?
-      (2) To what extent does raceaffect these statistics?
-      (3) How impactful are swing states in dictating the election's victory?"
+      presidential elections. Such questions that arises are:"),
+  p(
+    " 1) What affects the disparities within voter turnout and trends?
+      2) To what extent does raceaffect these statistics?
+      3) How impactful are swing states in dictating the election's victory?"
   ),
   p(
     "With that said, we are interested in this because our group feels that 
@@ -195,6 +193,7 @@ summary_panel <- tabPanel(
 
 # Create overall UI
 ui <- fluidPage(
+  includeCSS("style.css")
   navbarPage(
     "US Election",
     intro_panel,
@@ -203,10 +202,5 @@ ui <- fluidPage(
     vote_panel,
     summary_panel
   )
-)
-
-# Layout 
-ui <- navbarPage(
-  includeCSS("style.css")
 )
 
