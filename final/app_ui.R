@@ -146,14 +146,14 @@ votes_content <- mainPanel(
 vote_panel <- tabPanel(
   "Votes Graph",
   titlePanel("Voting Trends in Each Swing State"),
-  h3("This chart displays the total votes for each candidate
+  h3("This chart displays the relationship between the votes for each candidate
     in each of the swing states. We wanted to used this chart to display the 
-    different number of votes in each of 
-     swing states to see the comparison between those who voted for Biden
-     and those who voted for Trump in the election. From the chart, we can see
-     that in each of these states the number of votes for each candidate are
-     much closser to each other in these states than non-swing states which 
-     indicates the importance of the outcomes in these states."),
+   the proportions of those who voted for Biden qnd those who voted for Trump 
+   in the 2020 election within these selected swing states, individually, and 
+   also comparatively with the other states as well. From the chart, in many of
+     these states the ratio between the two candidates is similar given that 
+     they are swing states, but there were ultimately more states that 
+     had a higher Biden ratio than that of Trump, leading to the victory."),
   sidebarLayout(votes_sidebar,
                 votes_content)
 )
