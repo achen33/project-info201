@@ -19,9 +19,11 @@ create_elec_plot <- function(df, sel_states) {
   df <- df %>%
     filter(state == sel_states)
 
-  trump_biden_plot <- ggplot(data = df, aes(x = candidate, y = votes, 
-                                            color = candidate, 
-                                            fill = candidate)) +
+  trump_biden_plot <- ggplot(data = df, aes(
+    x = candidate, y = votes,
+    color = candidate,
+    fill = candidate
+  )) +
     geom_bar(stat = "identity") +
     scale_color_manual(values = election_color) +
     scale_fill_manual(values = election_color) +
